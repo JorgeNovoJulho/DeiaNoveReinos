@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/game_hud.gd" id="1_hud"]
+
+[node name="GameHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Margin" type="MarginContainer" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 184.0
+offset_bottom = 76.0
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "HP: -- / --"
+
+[node name="MP" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "MP: -- / --"

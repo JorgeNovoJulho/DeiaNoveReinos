@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/room_exit.gd" id="1_exit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(1280, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(32, 2220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(280, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(72, 100)
+
+[node name="TestRoom02" type="Node2D"]
+
+[node name="BackgroundPlaceholder" type="Polygon2D" parent="."]
+color = Color(0.19, 0.13, 0.29, 1)
+polygon = PackedVector2Array(0, -1500, 1280, -1500, 1280, 760, 0, 760)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 696)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Floor"]
+color = Color(0.52, 0.39, 0.62, 1)
+polygon = PackedVector2Array(-640, -24, 640, -24, 640, 24, -640, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -390)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="LeftWall"]
+color = Color(0.42, 0.31, 0.53, 1)
+polygon = PackedVector2Array(-16, -1110, 16, -1110, 16, 1110, -16, 1110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1280, -390)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="RightWall"]
+color = Color(0.42, 0.31, 0.53, 1)
+polygon = PackedVector2Array(-16, -1110, 16, -1110, 16, 1110, -16, 1110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Entries" type="Node2D" parent="."]
+
+[node name="FromRoom01" type="Marker2D" parent="Entries"]
+position = Vector2(220, 644)
+
+[node name="ExitToRoom01" type="Area2D" parent="."]
+position = Vector2(100, 630)
+script = ExtResource("1_exit")
+destination_scene = "res://scenes/world/test_room_01.tscn"
+destination_entry = &"FromRoom02"
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="ExitToRoom01"]
+color = Color(0.96, 0.71, 0.38, 0.8)
+polygon = PackedVector2Array(-36, -50, 36, -50, 36, 50, -36, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToRoom01"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="Platform01" type="StaticBody2D" parent="."]
+position = Vector2(460, 490)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform01"]
+color = Color(0.7, 0.52, 0.73, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform01"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform02" type="StaticBody2D" parent="."]
+position = Vector2(850, 270)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform02"]
+color = Color(0.7, 0.52, 0.73, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform02"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform03" type="StaticBody2D" parent="."]
+position = Vector2(500, 40)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform03"]
+color = Color(0.7, 0.52, 0.73, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform03"]
+shape = SubResource("RectangleShape2D_platform")

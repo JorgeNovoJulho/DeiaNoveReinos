@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/test_room_01.tscn" id="1_room"]
+[ext_resource type="PackedScene" path="res://scenes/player/deia.tscn" id="2_deia"]
+[ext_resource type="Script" path="res://scripts/world/room_transition.gd" id="3_transitions"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_hud.tscn" id="4_hud"]
+[ext_resource type="Script" path="res://scripts/systems/save_manager.gd" id="5_save"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("3_transitions")
+
+[node name="RoomContainer" type="Node2D" parent="."]
+
+[node name="TestRoom01" parent="RoomContainer" instance=ExtResource("1_room")]
+
+[node name="Deia" parent="." instance=ExtResource("2_deia")]
+position = Vector2(320, 644)
+
+[node name="GameHUD" parent="." instance=ExtResource("4_hud")]
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("5_save")

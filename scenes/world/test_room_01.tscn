@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/room_exit.gd" id="1_exit"]
+[ext_resource type="PackedScene" path="res://scenes/world/test_target.tscn" id="2_target"]
+[ext_resource type="PackedScene" path="res://scenes/world/dream_sanctuary.tscn" id="3_sanctuary"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(1280, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
+size = Vector2(280, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(32, 2220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(72, 100)
+
+[node name="TestRoom01" type="Node2D"]
+
+[node name="BackgroundPlaceholder" type="Polygon2D" parent="."]
+color = Color(0.1, 0.14, 0.23, 1)
+polygon = PackedVector2Array(0, -1500, 1280, -1500, 1280, 760, 0, 760)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(640, 696)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Floor"]
+color = Color(0.3, 0.55, 0.45, 1)
+polygon = PackedVector2Array(-640, -24, 640, -24, 640, 24, -640, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -390)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="LeftWall"]
+color = Color(0.25, 0.41, 0.4, 1)
+polygon = PackedVector2Array(-16, -1110, 16, -1110, 16, 1110, -16, 1110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1280, -390)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="RightWall"]
+color = Color(0.25, 0.41, 0.4, 1)
+polygon = PackedVector2Array(-16, -1110, 16, -1110, 16, 1110, -16, 1110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Entries" type="Node2D" parent="."]
+
+[node name="FromRoom02" type="Marker2D" parent="Entries"]
+position = Vector2(1030, 644)
+
+[node name="ExitToRoom02" type="Area2D" parent="."]
+position = Vector2(1180, 630)
+script = ExtResource("1_exit")
+destination_scene = "res://scenes/world/test_room_02.tscn"
+destination_entry = &"FromRoom01"
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="ExitToRoom02"]
+color = Color(0.3, 0.82, 0.93, 0.72)
+polygon = PackedVector2Array(-36, -50, 36, -50, 36, 50, -36, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitToRoom02"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="TestTarget" parent="." instance=ExtResource("2_target")]
+position = Vector2(760, 650)
+
+[node name="DreamSanctuary" parent="." instance=ExtResource("3_sanctuary")]
+position = Vector2(520, 624)
+
+[node name="Platform01" type="StaticBody2D" parent="."]
+position = Vector2(420, 490)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform01"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform01"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform02" type="StaticBody2D" parent="."]
+position = Vector2(800, 280)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform02"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform02"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform03" type="StaticBody2D" parent="."]
+position = Vector2(420, 60)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform03"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform03"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform04" type="StaticBody2D" parent="."]
+position = Vector2(800, -170)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform04"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform04"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform05" type="StaticBody2D" parent="."]
+position = Vector2(430, -410)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform05"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform05"]
+shape = SubResource("RectangleShape2D_platform")
+
+[node name="Platform06" type="StaticBody2D" parent="."]
+position = Vector2(800, -650)
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="Platform06"]
+color = Color(0.46, 0.63, 0.56, 1)
+polygon = PackedVector2Array(-140, -12, 140, -12, 140, 12, -140, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform06"]
+shape = SubResource("RectangleShape2D_platform")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/deia_controller.gd" id="1_controller"]
+[ext_resource type="Script" path="res://scripts/systems/health.gd" id="2_vitals"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 18.0
+height = 56.0
+
+[node name="Deia" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_controller")
+
+[node name="VisualPlaceholder" type="Node2D" parent="."]
+
+[node name="Body" type="Polygon2D" parent="VisualPlaceholder"]
+color = Color(0.89, 0.32, 0.34, 1)
+polygon = PackedVector2Array(-20, -24, 0, -32, 20, -24, 24, 12, 14, 28, -14, 28, -24, 12)
+
+[node name="Belly" type="Polygon2D" parent="VisualPlaceholder"]
+color = Color(1, 0.86, 0.42, 1)
+polygon = PackedVector2Array(-11, -8, 0, -14, 11, -8, 12, 19, 0, 25, -12, 19)
+
+[node name="Ribbon" type="Polygon2D" parent="VisualPlaceholder"]
+color = Color(0.8, 0.08, 0.13, 1)
+polygon = PackedVector2Array(-12, -37, -3, -31, 0, -35, 3, -31, 12, -37, 8, -26, 0, -28, -8, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_body")
+
+[node name="Vitals" type="Node" parent="."]
+script = ExtResource("2_vitals")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = true
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+limit_left = 0
+limit_top = -1500
+limit_right = 1280
+limit_bottom = 720

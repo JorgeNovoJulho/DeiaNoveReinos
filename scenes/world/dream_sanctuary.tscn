@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/dream_sanctuary.gd" id="1_sanctuary"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sanctuary"]
+size = Vector2(80, 96)
+
+[node name="DreamSanctuary" type="Area2D"]
+script = ExtResource("1_sanctuary")
+
+[node name="VisualPlaceholder" type="Polygon2D" parent="."]
+color = Color(0.39, 0.93, 0.77, 0.72)
+polygon = PackedVector2Array(-40, -48, 40, -48, 40, 48, -40, 48)
+
+[node name="PromptPlaceholder" type="Label" parent="."]
+offset_left = -83.0
+offset_top = -81.0
+offset_right = 83.0
+offset_bottom = -48.0
+horizontal_alignment = 1
+text = "SANTUÁRIO (E)"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sanctuary")
