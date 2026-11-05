@@ -6,7 +6,9 @@
 - Usar GDScript e recursos nativos do Godot 4; priorizar módulos simples e fáceis de manter.
 - Não instalar plugins ou baixar dependências sem autorização.
 - Não criar assets definitivos sem aprovação; identificar claramente os placeholders.
-- Não modificar a lore aprovada na Bíblia Narrativa V3.0 sem autorização.
+- **Fonte primária obrigatória:** PDF de 69 páginas `DÉIA E OS NOVE MUNDOS MAJESTOSOS - REVISADO(1).pdf`, SHA-256 `8359f6880dbf0ccd540c89867836851b5862252ab3a96510a2cc31245f25ef34`, conforme `docs/CANONE_PDF_REVISADO_20261103.md`. A Bíblia Narrativa V3.0 e demais fontes antigas só podem complementar lacunas, nunca contrariar o PDF revisado.
+- Não modificar a lore oficial do PDF revisado sem autorização; **a sequência das nove peças já foi corrigida e aprovada pelo autor** em `docs/ARMADURA_CELESTIAL_PROGRESSAO_APROVADA.md` e deve prevalecer sobre contagens equivocadas no PDF.
+- Finais alternativos e detalhes antigos da batalha de Vael’Zhar estão arquivados em `docs/HISTORICO_FINAIS_VAELZHAR_V6_3.md` como material histórico não canonizado pelo PDF revisado. As demais contradições exigem aprovação do autor.
 - Não apagar nem sobrescrever dados sem autorização; evitar comandos destrutivos.
 - Executar testes após cada implementação e distinguir testes automáticos de verificação manual.
 - Registrar alterações, resultados, problemas conhecidos e pendências em `docs/PROGRESSO.md`.
